@@ -75,12 +75,12 @@ button:disabled {
 textarea {
   width: 100%;
   padding: 12px;
-  margin: 8px 0 20px;
+  margin: 8px 0;
   border: 1px solid #ccc;
   border-radius: 10px;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  resize: vertical; /* Allow vertical resizing of the textarea */
+  resize: vertical; /* Allows the textarea to be resized vertically */
 }
 
 textarea::placeholder {
