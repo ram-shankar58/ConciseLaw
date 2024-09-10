@@ -1,11 +1,13 @@
 /* src/components/Navbar.css */
 .navbar {
-   
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #5b2e09;
-  padding: 1rem;
+  height: 65px;
+  /* Set height to match Home component */
+  padding: 0 1rem;
+  /* Adjust padding if needed */
   color: white;
 }
 
@@ -24,6 +26,19 @@
 .nav-links a {
   color: white;
   text-decoration: none;
+  padding: 0.5rem 1rem;
+  /* Add padding for spacing */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Smooth transition effect */
+}
+
+.nav-links a:hover {
+  background-color: #7f4d28;
+  /* Slightly lighter background color for hover */
+  color: #f0e6d6;
+  /* Lighter text color for contrast on hover */
+  border-radius: 5px;
+  /* Optional: Rounded corners on hover */
 }
 
 .profile-section {
@@ -35,6 +50,12 @@
 .language-select {
   background-color: #3b485b;
   color: white;
+  border: none;
+  /* Remove default border */
+  padding: 0.5rem;
+  /* Add padding inside the dropdown */
+  border-radius: 5px;
+  /* Optional: Rounded corners */
 }
 
 .profile-pic {
