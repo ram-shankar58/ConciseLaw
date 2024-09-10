@@ -1,38 +1,42 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';  // Import axios for making API requests
+import axios from 'axios';
 import './Currencies.css';
 
 const Currencies = () => {
   const navigate = useNavigate();
 
-  // Set up state for each form field
   const [caseType, setCaseType] = useState('');
   const [description, setDescription] = useState('');
   const [jurisdiction, setJurisdiction] = useState('');
+  const [error, setError] = useState(null);
 
-  // Handle form submission
   const handleGenerateResponse = async () => {
     const formData = {
-      caseType,
-      description,
-      jurisdiction,
+      "text": description,
     };
 
     try {
-      // Send a POST request to your backend API
-      const response = await axios.post('http://localhost:5000/api/cases', formData);
+      const response = await axios.post('http://localhost:8000/predict', formData);
       console.log('Response from backend:', response.data);
-      
-      // Navigate to the CaseDetails page (adjust the path as needed)
-      navigate('/case-details');
+
+      const similarCases = response.data.similar_cases;
+      if (Array.isArray(similarCases)) {
+        navigate('/case-details', { state: { caseIds: similarCases } });
+      } else {
+        console.error('Expected an array for similar_cases but got:', similarCases);
+        setError('Unexpected data format received.');
+      }
     } catch (error) {
       console.error('Error generating response:', error);
+      setError('Failed to generate response. Please try again.');
     }
   };
 
   return (
     <div className="container">
+      {error && <p className="error-message">{error}</p>}
+
       <label>Case Type:</label>
       <input
         type="text"
@@ -46,7 +50,7 @@ const Currencies = () => {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Provide a detailed description of the case"
-        rows="6"  // Makes the text box larger
+        rows="6"
       />
 
       <label>Jurisdiction:</label>
