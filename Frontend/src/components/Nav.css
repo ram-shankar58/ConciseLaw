@@ -1,0 +1,44 @@
+/* src/components/Navbar.css */
+.navbar {
+   
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5b2e09;
+  padding: 1rem;
+  color: white;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.language-select {
+  background-color: #3b485b;
+  color: white;
+}
+
+.profile-pic {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
