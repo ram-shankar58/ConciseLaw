@@ -22,7 +22,7 @@ const Currencies = () => {
 
       const similarCases = response.data.similar_cases;
       if (Array.isArray(similarCases)) {
-        navigate('/case-details', { state: { caseIds: similarCases } });
+        navigate('/case-details', { state: { caseDetails: similarCases } });
       } else {
         console.error('Expected an array for similar_cases but got:', similarCases);
         setError('Unexpected data format received.');
@@ -58,7 +58,7 @@ const Currencies = () => {
         type="text"
         value={jurisdiction}
         onChange={(e) => setJurisdiction(e.target.value)}
-        placeholder="e.g., California"
+        placeholder="e.g., Tamil Nadu"
       />
 
       <div className="button-container">

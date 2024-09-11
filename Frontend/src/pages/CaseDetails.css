@@ -1,13 +1,26 @@
-/* src/pages/CaseDetails.css */
+/* Container for the heading and grid */
 .case-details-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 1200px; /* Adjust if needed */
-  margin: 20px auto; /* Center the grid and add vertical margin */
   padding: 20px;
+  display: flex;
+  width: 500px;
+padding-left: 500px;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Center align the grid */
+  align-items: center;
 }
 
+/* Center the heading */
+.middleyougo {
+  text-align: center;
+  width: 100%;
+  font-size: 2rem;
+  font-weight: bold;
+
+  margin: 40px 0; /* Adds some space above and below the heading */
+}
+
+/* Case Card Styles */
 .case-card {
   background-color: #ffffff;
   border: 1px solid #ddd;
@@ -17,11 +30,11 @@
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
-  min-height: 150px; /* Set a minimum height for the cards */
+  min-height: 150px;
   display: flex;
-  flex-direction: column; /* Arrange content vertically */
-  align-items: center; /* Center content horizontally */
-  justify-content: center; /* Center content vertically */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .case-card:hover {
@@ -29,15 +42,95 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: left;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .case-details-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .case-details-container {
-    grid-template-columns: 1fr; /* 1 column on small screens */
+    grid-template-columns: 1fr;
   }
+}
+
+/* Improved visual appeal */
+.case-card {
+  background-color: #f9f9f9;
+  border: 1px solid #e1e1e1;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.case-card:hover {
+  transform: scale(1.07);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.case-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.case-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.case-card p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.modal-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.modal-content p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
 }

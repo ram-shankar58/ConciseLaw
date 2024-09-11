@@ -1,33 +1,54 @@
 import { Link } from "react-router-dom";
 import React from 'react';
-import './Nav.css';
-export default function Nav(props) {
+import './Nav.css'; // Make sure this path is correct based on your folder structure
+
+export default function Nav() {
+
+  // Logout function to handle logging out
+  const handleLogout = () => {
+    sessionStorage.removeItem("loggedIn");
+    sessionStorage.removeItem("timeout");
+    alert("You have been logged out.");
+    window.location.href = "/login"; // Redirect to the login page
+  };
+
   return (
     <nav className="navbar">
-      <div className="logo">ConciseLaw</div>
+      <Link to="/" className="logo-link">
+        <div className="logo">ConciseLaw</div>
+      </Link>
+      
       <ul className="nav-links">
-        <Link to="/">
-          <li>Home</li>
-        </Link>
-        <Link to="/Explore">
-          <li>Explore</li>
-          </Link>
-        <Link to="/currencies">
-          <li>Search Engine</li>
-        </Link>
-
-          <Link to="/contact">
-          <li>Contact Us</li>
-          </Link>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/explore">Explore</Link>
+        </li>
+        <li>
+          <Link to="/currencies">Search Engine</Link>
+        </li>
+        <li>
+          <Link to="/chatbot">Chatbot</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact Us</Link>
+        </li>
       </ul>
-      <div>
+
+      <div className="profile-section">
+        <div className="logout-container">
+          <button className="logout-button" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
+        
         <select className="language-select">
-        <option value="en">EN</option>
-        <option value="hi">HI</option>
-        <option value="bn">BN</option>
+          <option value="en">EN</option>
+          <option value="hi">HI</option>
+          <option value="bn">BN</option>
         </select>
       </div>
     </nav>
-
   );
 }

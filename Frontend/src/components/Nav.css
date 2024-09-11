@@ -1,21 +1,27 @@
-/* src/components/Navbar.css */
+/* Navbar styles */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #5b2e09;
   height: 65px;
-  /* Set height to match Home component */
   padding: 0 1rem;
-  /* Adjust padding if needed */
   color: white;
+}
+
+logo-link {
+  text-decoration: none; /* Remove underline */
+  color: white; /* Keep the text white */
 }
 
 .logo {
   font-size: 1.5rem;
+  text-decoration: none;
+  color: white; 
   font-weight: bold;
 }
 
+/* Navigation links */
 .nav-links {
   list-style: none;
   display: flex;
@@ -23,43 +29,72 @@
   font-size: 1.5rem;
 }
 
+.nav-links li {
+  display: inline;
+}
+
 .nav-links a {
   color: white;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  /* Add padding for spacing */
   transition: background-color 0.3s ease, color 0.3s ease;
-  /* Smooth transition effect */
 }
 
 .nav-links a:hover {
   background-color: #7f4d28;
-  /* Slightly lighter background color for hover */
   color: #f0e6d6;
-  /* Lighter text color for contrast on hover */
   border-radius: 5px;
-  /* Optional: Rounded corners on hover */
 }
 
+/* Profile section for Logout and language select */
 .profile-section {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
+/* Language select dropdown */
 .language-select {
   background-color: #3b485b;
   color: white;
   border: none;
-  /* Remove default border */
   padding: 0.5rem;
-  /* Add padding inside the dropdown */
   border-radius: 5px;
-  /* Optional: Rounded corners */
 }
 
-.profile-pic {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
+/* Logout button styles */
+.logout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout-button {
+  background-color: #ff5c5c;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.logout-button:hover {
+  background-color: #ff1f1f;
+  transform: scale(1.05);
+}
+
+.logout-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px 2px rgba(255, 0, 0, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .logout-button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
 }
